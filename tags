@@ -6,19 +6,37 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 ALLOWED_HOSTS	app/app/settings.py	/^ALLOWED_HOSTS = []$/;"	v
 AUTH_PASSWORD_VALIDATORS	app/app/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	v
+AUTH_USER_MODEL	app/app/settings.py	/^AUTH_USER_MODEL = 'core.User'$/;"	v
 BASE_DIR	app/app/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	v
+CoreConfig	app/core/apps.py	/^class CoreConfig(AppConfig):$/;"	c
 DATABASES	app/app/settings.py	/^DATABASES = {$/;"	v
 DEBUG	app/app/settings.py	/^DEBUG = True$/;"	v
 INSTALLED_APPS	app/app/settings.py	/^INSTALLED_APPS = [$/;"	v
 LANGUAGE_CODE	app/app/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	v
 MIDDLEWARE	app/app/settings.py	/^MIDDLEWARE = [$/;"	v
+ModelTests	app/core/tests/test_models.py	/^class ModelTests(TestCase):$/;"	c
 ROOT_URLCONF	app/app/settings.py	/^ROOT_URLCONF = 'app.urls'$/;"	v
 STATIC_URL	app/app/settings.py	/^STATIC_URL = '\/static\/'$/;"	v
 TEMPLATES	app/app/settings.py	/^TEMPLATES = [$/;"	v
 TIME_ZONE	app/app/settings.py	/^TIME_ZONE = 'UTC'$/;"	v
+USERNAME_FIELD	app/core/models.py	/^    USERNAME_FIELD = 'email'$/;"	v	class:User
 USE_I18N	app/app/settings.py	/^USE_I18N = True$/;"	v
 USE_L10N	app/app/settings.py	/^USE_L10N = True$/;"	v
 USE_TZ	app/app/settings.py	/^USE_TZ = True$/;"	v
+User	app/core/models.py	/^class User(AbstractBaseUser, PermissionsMixin):$/;"	c
+UserManager	app/core/models.py	/^class UserManager(BaseUserManager):$/;"	c
 WSGI_APPLICATION	app/app/settings.py	/^WSGI_APPLICATION = 'app.wsgi.application'$/;"	v
 application	app/app/wsgi.py	/^application = get_wsgi_application()$/;"	v
+create_superuser	app/core/models.py	/^    def create_superuser(self, email, password):$/;"	m	class:UserManager
+create_user	app/core/models.py	/^    def create_user(self, email, password=None, **extra_fields):$/;"	m	class:UserManager
+email	app/core/models.py	/^    email = models.EmailField(max_length=255, unique=True)$/;"	v	class:User
+is_active	app/core/models.py	/^    is_active = models.BooleanField(default=True)$/;"	v	class:User
+is_staff	app/core/models.py	/^    is_staff = models.BooleanField(default=False)$/;"	v	class:User
+name	app/core/apps.py	/^    name = 'core'$/;"	v	class:CoreConfig
+name	app/core/models.py	/^    name = models.CharField(max_length=255)$/;"	v	class:User
+objects	app/core/models.py	/^    objects = UserManager()$/;"	v	class:User
+test_create_new_superuser	app/core/tests/test_models.py	/^    def test_create_new_superuser(self):$/;"	m	class:ModelTests
+test_create_user_with_email_successful	app/core/tests/test_models.py	/^    def test_create_user_with_email_successful(self):$/;"	m	class:ModelTests
+test_new_user_email_normalized	app/core/tests/test_models.py	/^    def test_new_user_email_normalized(self):$/;"	m	class:ModelTests
+test_new_user_invalid_email	app/core/tests/test_models.py	/^    def test_new_user_invalid_email(self):$/;"	m	class:ModelTests
 urlpatterns	app/app/urls.py	/^urlpatterns = [$/;"	v
