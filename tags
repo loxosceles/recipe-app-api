@@ -8,57 +8,90 @@ ALLOWED_HOSTS	app/app/settings.py	/^ALLOWED_HOSTS = []$/;"	v
 AUTH_PASSWORD_VALIDATORS	app/app/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	v
 AUTH_USER_MODEL	app/app/settings.py	/^AUTH_USER_MODEL = 'core.User'$/;"	v
 AdminSiteTests	app/core/tests/test_admin.py	/^class AdminSiteTests(TestCase):$/;"	c
+AuthTokenSerializer	app/user/serializers.py	/^class AuthTokenSerializer(serializers.Serializer):$/;"	c
 BASE_DIR	app/app/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	v
+CREATE_USER_URL	app/user/tests/test_user_api.py	/^CREATE_USER_URL = reverse('user:create')$/;"	v
 Command	app/core/management/commands/wait_for_db.py	/^class Command(BaseCommand):$/;"	c
 CommandTests	app/core/tests/test_commands.py	/^class CommandTests(TestCase):$/;"	c
 CoreConfig	app/core/apps.py	/^class CoreConfig(AppConfig):$/;"	c
+CreateTokenView	app/user/views.py	/^class CreateTokenView(ObtainAuthToken):$/;"	c
+CreateUserView	app/user/views.py	/^class CreateUserView(generics.CreateAPIView):$/;"	c
 DATABASES	app/app/settings.py	/^DATABASES = {$/;"	v
 DEBUG	app/app/settings.py	/^DEBUG = True$/;"	v
 INSTALLED_APPS	app/app/settings.py	/^INSTALLED_APPS = [$/;"	v
 LANGUAGE_CODE	app/app/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	v
 MIDDLEWARE	app/app/settings.py	/^MIDDLEWARE = [$/;"	v
+Meta	app/user/serializers.py	/^    class Meta:$/;"	c	class:UserSerializer
 Migration	app/core/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	c
 ModelTests	app/core/tests/test_models.py	/^class ModelTests(TestCase):$/;"	c
+PublicUserAPITests	app/user/tests/test_user_api.py	/^class PublicUserAPITests(TestCase):$/;"	c
 ROOT_URLCONF	app/app/settings.py	/^ROOT_URLCONF = 'app.urls'$/;"	v
 STATIC_URL	app/app/settings.py	/^STATIC_URL = '\/static\/'$/;"	v
 TEMPLATES	app/app/settings.py	/^TEMPLATES = [$/;"	v
 TIME_ZONE	app/app/settings.py	/^TIME_ZONE = 'UTC'$/;"	v
+TOKEN_URL	app/user/tests/test_user_api.py	/^TOKEN_URL = reverse('user:token')$/;"	v
 USERNAME_FIELD	app/core/models.py	/^    USERNAME_FIELD = 'email'$/;"	v	class:User
 USE_I18N	app/app/settings.py	/^USE_I18N = True$/;"	v
 USE_L10N	app/app/settings.py	/^USE_L10N = True$/;"	v
 USE_TZ	app/app/settings.py	/^USE_TZ = True$/;"	v
 User	app/core/models.py	/^class User(AbstractBaseUser, PermissionsMixin):$/;"	c
 UserAdmin	app/core/admin.py	/^class UserAdmin(BaseUserAdmin):$/;"	c
+UserConfig	app/user/apps.py	/^class UserConfig(AppConfig):$/;"	c
 UserManager	app/core/models.py	/^class UserManager(BaseUserManager):$/;"	c
+UserSerializer	app/user/serializers.py	/^class UserSerializer(serializers.ModelSerializer):$/;"	c
 WSGI_APPLICATION	app/app/settings.py	/^WSGI_APPLICATION = 'app.wsgi.application'$/;"	v
 add_fieldsets	app/core/admin.py	/^    add_fieldsets = ($/;"	v	class:UserAdmin
+app_name	app/user/urls.py	/^app_name = 'user'$/;"	v
 application	app/app/wsgi.py	/^application = get_wsgi_application()$/;"	v
+create	app/user/serializers.py	/^    def create(self, validated_data):$/;"	m	class:UserSerializer
 create_superuser	app/core/models.py	/^    def create_superuser(self, email, password):$/;"	m	class:UserManager
 create_user	app/core/models.py	/^    def create_user(self, email, password=None, **extra_fields):$/;"	m	class:UserManager
+create_user	app/user/tests/test_user_api.py	/^def create_user(**params):$/;"	f
 dependencies	app/core/migrations/0001_initial.py	/^    dependencies = [$/;"	v	class:Migration
 email	app/core/models.py	/^    email = models.EmailField(max_length=255, unique=True)$/;"	v	class:User
+email	app/user/serializers.py	/^    email = serializers.CharField()$/;"	v	class:AuthTokenSerializer
+extra_kwargs	app/user/serializers.py	/^        extra_kwargs = {'password': {'write_only': True, 'min_length': 5}}$/;"	v	class:UserSerializer.Meta
 fields	app/core/migrations/0001_initial.py	/^            fields=[$/;"	v	class:Migration
+fields	app/user/serializers.py	/^        fields = ('email', 'password', 'name')$/;"	v	class:UserSerializer.Meta
 fieldsets	app/core/admin.py	/^    fieldsets = ($/;"	v	class:UserAdmin
 handle	app/core/management/commands/wait_for_db.py	/^    def handle(self, *args, **options):$/;"	m	class:Command
 initial	app/core/migrations/0001_initial.py	/^    initial = True$/;"	v	class:Migration
 is_active	app/core/models.py	/^    is_active = models.BooleanField(default=True)$/;"	v	class:User
 is_staff	app/core/models.py	/^    is_staff = models.BooleanField(default=False)$/;"	v	class:User
 list_display	app/core/admin.py	/^    list_display = ['email', 'name']$/;"	v	class:UserAdmin
+model	app/user/serializers.py	/^        model = get_user_model()$/;"	v	class:UserSerializer.Meta
 name	app/core/apps.py	/^    name = 'core'$/;"	v	class:CoreConfig
 name	app/core/migrations/0001_initial.py	/^            name='User',$/;"	v	class:Migration
 name	app/core/models.py	/^    name = models.CharField(max_length=255)$/;"	v	class:User
+name	app/user/apps.py	/^    name = 'user'$/;"	v	class:UserConfig
 objects	app/core/models.py	/^    objects = UserManager()$/;"	v	class:User
 operations	app/core/migrations/0001_initial.py	/^    operations = [$/;"	v	class:Migration
 options	app/core/migrations/0001_initial.py	/^            options={$/;"	v	class:Migration
 ordering	app/core/admin.py	/^    ordering = ['id']$/;"	v	class:UserAdmin
+password	app/user/serializers.py	/^    password = serializers.CharField($/;"	v	class:AuthTokenSerializer
+renderer_classes	app/user/views.py	/^    renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES$/;"	v	class:CreateTokenView
+serializer_class	app/user/views.py	/^    serializer_class = AuthTokenSerializer$/;"	v	class:CreateTokenView
+serializer_class	app/user/views.py	/^    serializer_class = UserSerializer$/;"	v	class:CreateUserView
 setUp	app/core/tests/test_admin.py	/^    def setUp(self):$/;"	m	class:AdminSiteTests
+setup	app/user/tests/test_user_api.py	/^    def setup(self):$/;"	m	class:PublicUserAPITests
+style	app/user/serializers.py	/^        style={'input_type': 'password'},$/;"	v	class:AuthTokenSerializer
 test_create_new_superuser	app/core/tests/test_models.py	/^    def test_create_new_superuser(self):$/;"	m	class:ModelTests
+test_create_token_for_user	app/user/tests/test_user_api.py	/^    def test_create_token_for_user(self):$/;"	m	class:PublicUserAPITests
+test_create_token_invalid_credentials	app/user/tests/test_user_api.py	/^    def test_create_token_invalid_credentials(self):$/;"	m	class:PublicUserAPITests
+test_create_token_missing_field	app/user/tests/test_user_api.py	/^    def test_create_token_missing_field(self):$/;"	m	class:PublicUserAPITests
+test_create_token_no_user	app/user/tests/test_user_api.py	/^    def test_create_token_no_user(self):$/;"	m	class:PublicUserAPITests
 test_create_user_page	app/core/tests/test_admin.py	/^    def test_create_user_page(self):$/;"	m	class:AdminSiteTests
 test_create_user_with_email_successful	app/core/tests/test_models.py	/^    def test_create_user_with_email_successful(self):$/;"	m	class:ModelTests
+test_create_valid_user_success	app/user/tests/test_user_api.py	/^    def test_create_valid_user_success(self):$/;"	m	class:PublicUserAPITests
 test_new_user_email_normalized	app/core/tests/test_models.py	/^    def test_new_user_email_normalized(self):$/;"	m	class:ModelTests
 test_new_user_invalid_email	app/core/tests/test_models.py	/^    def test_new_user_invalid_email(self):$/;"	m	class:ModelTests
+test_password_too_short	app/user/tests/test_user_api.py	/^    def test_password_too_short(self):$/;"	m	class:PublicUserAPITests
 test_user_change_page	app/core/tests/test_admin.py	/^    def test_user_change_page(self):$/;"	m	class:AdminSiteTests
+test_user_exists	app/user/tests/test_user_api.py	/^    def test_user_exists(self):$/;"	m	class:PublicUserAPITests
 test_users_listed	app/core/tests/test_admin.py	/^    def test_users_listed(self):$/;"	m	class:AdminSiteTests
 test_wait_for_db	app/core/tests/test_commands.py	/^    def test_wait_for_db(self, ts):$/;"	m	class:CommandTests
 test_wait_for_db_ready	app/core/tests/test_commands.py	/^    def test_wait_for_db_ready(self):$/;"	m	class:CommandTests
+trim_whitespace	app/user/serializers.py	/^        trim_whitespace=False$/;"	v	class:AuthTokenSerializer
 urlpatterns	app/app/urls.py	/^urlpatterns = [$/;"	v
+urlpatterns	app/user/urls.py	/^urlpatterns = [$/;"	v
+validate	app/user/serializers.py	/^    def validate(self, attrs):$/;"	m	class:AuthTokenSerializer
