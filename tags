@@ -10,6 +10,7 @@ AUTH_USER_MODEL	app/app/settings.py	/^AUTH_USER_MODEL = 'core.User'$/;"	v
 AdminSiteTests	app/core/tests/test_admin.py	/^class AdminSiteTests(TestCase):$/;"	c
 AuthTokenSerializer	app/user/serializers.py	/^class AuthTokenSerializer(serializers.Serializer):$/;"	c
 BASE_DIR	app/app/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	v
+BaseRecipeAttrViewSet	app/recipe/views.py	/^                            mixins.CreateModelMixin):$/;"	c
 Command	app/core/management/commands/wait_for_db.py	/^class Command(BaseCommand):$/;"	c
 CommandTests	app/core/tests/test_commands.py	/^class CommandTests(TestCase):$/;"	c
 CoreConfig	app/core/apps.py	/^class CoreConfig(AppConfig):$/;"	c
@@ -21,7 +22,7 @@ INGREDIENT_URL	app/recipe/tests/test_ingredients_api.py	/^INGREDIENT_URL = rever
 INSTALLED_APPS	app/app/settings.py	/^INSTALLED_APPS = [$/;"	v
 Ingredient	app/core/models.py	/^class Ingredient(models.Model):$/;"	c
 IngredientSerializer	app/recipe/serializers.py	/^class IngredientSerializer(serializers.ModelSerializer):$/;"	c
-IngredientViewSet	app/recipe/views.py	/^                        mixins.CreateModelMixin):$/;"	c
+IngredientViewSet	app/recipe/views.py	/^class IngredientViewSet(BaseRecipeAttrViewSet):$/;"	c
 LANGUAGE_CODE	app/app/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	v
 MIDDLEWARE	app/app/settings.py	/^MIDDLEWARE = [$/;"	v
 ManageUserView	app/user/views.py	/^class ManageUserView(generics.RetrieveUpdateAPIView):$/;"	c
@@ -43,7 +44,7 @@ TEMPLATES	app/app/settings.py	/^TEMPLATES = [$/;"	v
 TIME_ZONE	app/app/settings.py	/^TIME_ZONE = 'UTC'$/;"	v
 Tag	app/core/models.py	/^class Tag(models.Model):$/;"	c
 TagSerializer	app/recipe/serializers.py	/^class TagSerializer(serializers.ModelSerializer):$/;"	c
-TagViewSet	app/recipe/views.py	/^                 mixins.CreateModelMixin):$/;"	c
+TagViewSet	app/recipe/views.py	/^class TagViewSet(BaseRecipeAttrViewSet):$/;"	c
 USERNAME_FIELD	app/core/models.py	/^    USERNAME_FIELD = 'email'$/;"	v	class:User
 USE_I18N	app/app/settings.py	/^USE_I18N = True$/;"	v
 USE_L10N	app/app/settings.py	/^USE_L10N = True$/;"	v
@@ -60,8 +61,7 @@ add_fieldsets	app/core/admin.py	/^    add_fieldsets = ($/;"	v	class:UserAdmin
 app_name	app/recipe/urls.py	/^app_name = 'recipe'$/;"	v
 app_name	app/user/urls.py	/^app_name = 'user'$/;"	v
 application	app/app/wsgi.py	/^application = get_wsgi_application()$/;"	v
-authentication_classes	app/recipe/views.py	/^    authentication_classes = (TokenAuthentication,)$/;"	v	class:IngredientViewSet
-authentication_classes	app/recipe/views.py	/^    authentication_classes = (TokenAuthentication,)$/;"	v	class:TagViewSet
+authentication_classes	app/recipe/views.py	/^    authentication_classes = (TokenAuthentication,)$/;"	v	class:BaseRecipeAttrViewSet
 create	app/user/serializers.py	/^    def create(self, validated_data):$/;"	m	class:UserSerializer
 create_superuser	app/core/models.py	/^    def create_superuser(self, email, password):$/;"	m	class:UserManager
 create_user	app/core/models.py	/^    def create_user(self, email, password=None, **extra_fields):$/;"	m	class:UserManager
@@ -77,8 +77,7 @@ fields	app/recipe/serializers.py	/^        fields = ('id', 'name')$/;"	v	class:T
 fields	app/user/serializers.py	/^        fields = ('email', 'password', 'name')$/;"	v	class:UserSerializer.Meta
 fieldsets	app/core/admin.py	/^    fieldsets = ($/;"	v	class:UserAdmin
 get_object	app/user/views.py	/^    def get_object(self):$/;"	m	class:ManageUserView
-get_queryset	app/recipe/views.py	/^    def get_queryset(self):$/;"	m	class:IngredientViewSet
-get_queryset	app/recipe/views.py	/^    def get_queryset(self):$/;"	m	class:TagViewSet
+get_queryset	app/recipe/views.py	/^    def get_queryset(self):$/;"	m	class:BaseRecipeAttrViewSet
 handle	app/core/management/commands/wait_for_db.py	/^    def handle(self, *args, **options):$/;"	m	class:Command
 initial	app/core/migrations/0001_initial.py	/^    initial = True$/;"	v	class:Migration
 is_active	app/core/models.py	/^    is_active = models.BooleanField(default=True)$/;"	v	class:User
@@ -103,10 +102,8 @@ operations	app/core/migrations/0002_tag.py	/^    operations = [$/;"	v	class:Migr
 options	app/core/migrations/0001_initial.py	/^            options={$/;"	v	class:Migration
 ordering	app/core/admin.py	/^    ordering = ['id']$/;"	v	class:UserAdmin
 password	app/user/serializers.py	/^    password = serializers.CharField($/;"	v	class:AuthTokenSerializer
-perform_create	app/recipe/views.py	/^    def perform_create(self, serializer):$/;"	m	class:IngredientViewSet
-perform_create	app/recipe/views.py	/^    def perform_create(self, serializer):$/;"	m	class:TagViewSet
-permission_classes	app/recipe/views.py	/^    permission_classes = (IsAuthenticated,)$/;"	v	class:IngredientViewSet
-permission_classes	app/recipe/views.py	/^    permission_classes = (IsAuthenticated,)$/;"	v	class:TagViewSet
+perform_create	app/recipe/views.py	/^    def perform_create(self, serializer):$/;"	m	class:BaseRecipeAttrViewSet
+permission_classes	app/recipe/views.py	/^    permission_classes = (IsAuthenticated,)$/;"	v	class:BaseRecipeAttrViewSet
 permission_classes	app/user/views.py	/^    permission_classes = (permissions.IsAuthenticated,)$/;"	v	class:ManageUserView
 queryset	app/recipe/views.py	/^    queryset = Ingredient.objects.all()$/;"	v	class:IngredientViewSet
 queryset	app/recipe/views.py	/^    queryset = Tag.objects.all()$/;"	v	class:TagViewSet
