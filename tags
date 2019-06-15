@@ -21,7 +21,7 @@ INGREDIENT_URL	app/recipe/tests/test_ingredients_api.py	/^INGREDIENT_URL = rever
 INSTALLED_APPS	app/app/settings.py	/^INSTALLED_APPS = [$/;"	v
 Ingredient	app/core/models.py	/^class Ingredient(models.Model):$/;"	c
 IngredientSerializer	app/recipe/serializers.py	/^class IngredientSerializer(serializers.ModelSerializer):$/;"	c
-IngredientViewSet	app/recipe/views.py	/^class IngredientViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):$/;"	c
+IngredientViewSet	app/recipe/views.py	/^                        mixins.CreateModelMixin):$/;"	c
 LANGUAGE_CODE	app/app/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	v
 MIDDLEWARE	app/app/settings.py	/^MIDDLEWARE = [$/;"	v
 ManageUserView	app/user/views.py	/^class ManageUserView(generics.RetrieveUpdateAPIView):$/;"	c
@@ -103,6 +103,7 @@ operations	app/core/migrations/0002_tag.py	/^    operations = [$/;"	v	class:Migr
 options	app/core/migrations/0001_initial.py	/^            options={$/;"	v	class:Migration
 ordering	app/core/admin.py	/^    ordering = ['id']$/;"	v	class:UserAdmin
 password	app/user/serializers.py	/^    password = serializers.CharField($/;"	v	class:AuthTokenSerializer
+perform_create	app/recipe/views.py	/^    def perform_create(self, serializer):$/;"	m	class:IngredientViewSet
 perform_create	app/recipe/views.py	/^    def perform_create(self, serializer):$/;"	m	class:TagViewSet
 permission_classes	app/recipe/views.py	/^    permission_classes = (IsAuthenticated,)$/;"	v	class:IngredientViewSet
 permission_classes	app/recipe/views.py	/^    permission_classes = (IsAuthenticated,)$/;"	v	class:TagViewSet
@@ -125,6 +126,8 @@ setUp	app/recipe/tests/test_ingredients_api.py	/^    def setUp(self):$/;"	m	clas
 setUp	app/recipe/tests/test_tags_api.py	/^    def setUp(self):$/;"	m	class:PrivateTagsApiTests
 setUp	app/recipe/tests/test_tags_api.py	/^    def setUp(self):$/;"	m	class:PublicTagsApiTests
 style	app/user/serializers.py	/^        style={'input_type': 'password'},$/;"	v	class:AuthTokenSerializer
+test_create_ingredient_invalid	app/recipe/tests/test_ingredients_api.py	/^    def test_create_ingredient_invalid(self):$/;"	m	class:PrivateIngredientsApiTest
+test_create_ingredient_sucessfull	app/recipe/tests/test_ingredients_api.py	/^    def test_create_ingredient_sucessfull(self):$/;"	m	class:PrivateIngredientsApiTest
 test_create_new_superuser	app/core/tests/test_models.py	/^    def test_create_new_superuser(self):$/;"	m	class:ModelTests
 test_create_tag_invalid	app/recipe/tests/test_tags_api.py	/^    def test_create_tag_invalid(self):$/;"	m	class:PrivateTagsApiTests
 test_create_user_page	app/core/tests/test_admin.py	/^    def test_create_user_page(self):$/;"	m	class:AdminSiteTests
