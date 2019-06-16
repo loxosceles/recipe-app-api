@@ -29,6 +29,7 @@ MEDIA_URL	app/app/settings.py	/^MEDIA_URL = '\/media\/'$/;"	v
 MIDDLEWARE	app/app/settings.py	/^MIDDLEWARE = [$/;"	v
 ManageUserView	app/user/views.py	/^class ManageUserView(generics.RetrieveUpdateAPIView):$/;"	c
 Meta	app/recipe/serializers.py	/^    class Meta:$/;"	c	class:IngredientSerializer
+Meta	app/recipe/serializers.py	/^    class Meta:$/;"	c	class:RecipeImageSerializer
 Meta	app/recipe/serializers.py	/^    class Meta:$/;"	c	class:RecipeSerializer
 Meta	app/recipe/serializers.py	/^    class Meta:$/;"	c	class:TagSerializer
 Meta	app/user/serializers.py	/^    class Meta:$/;"	c	class:UserSerializer
@@ -49,7 +50,9 @@ ROOT_URLCONF	app/app/settings.py	/^ROOT_URLCONF = 'app.urls'$/;"	v
 Recipe	app/core/models.py	/^class Recipe(models.Model):$/;"	c
 RecipeConfig	app/recipe/apps.py	/^class RecipeConfig(AppConfig):$/;"	c
 RecipeDetailSerializer	app/recipe/serializers.py	/^class RecipeDetailSerializer(RecipeSerializer):$/;"	c
+RecipeImageSerializer	app/recipe/serializers.py	/^class RecipeImageSerializer(serializers.ModelSerializer):$/;"	c
 RecipeSerializer	app/recipe/serializers.py	/^class RecipeSerializer(serializers.ModelSerializer):$/;"	c
+RecipeUploadImageTests	app/recipe/tests/test_recipe_api.py	/^class RecipeUploadImageTests(TestCase):$/;"	c
 RecipeViewSet	app/recipe/views.py	/^class RecipeViewSet(viewsets.ModelViewSet):$/;"	c
 STATIC_ROOT	app/app/settings.py	/^STATIC_ROOT = '\/vol\/web\/static'$/;"	v
 STATIC_URL	app/app/settings.py	/^STATIC_URL = '\/static\/'$/;"	v
@@ -94,6 +97,7 @@ fields	app/core/migrations/0001_initial.py	/^            fields=[$/;"	v	class:Mi
 fields	app/core/migrations/0002_tag.py	/^            fields=[$/;"	v	class:Migration
 fields	app/core/migrations/0003_ingredient.py	/^            fields=[$/;"	v	class:Migration
 fields	app/core/migrations/0004_recipe.py	/^            fields=[$/;"	v	class:Migration
+fields	app/recipe/serializers.py	/^        fields = ('id', 'image')$/;"	v	class:RecipeImageSerializer.Meta
 fields	app/recipe/serializers.py	/^        fields = ('id', 'name')$/;"	v	class:IngredientSerializer.Meta
 fields	app/recipe/serializers.py	/^        fields = ('id', 'name')$/;"	v	class:TagSerializer.Meta
 fields	app/recipe/serializers.py	/^        fields = ('id', 'title', 'ingredients', 'tags', 'time_minutes',$/;"	v	class:RecipeSerializer.Meta
@@ -105,6 +109,7 @@ get_queryset	app/recipe/views.py	/^    def get_queryset(self):$/;"	m	class:Recip
 get_serializer_class	app/recipe/views.py	/^    def get_serializer_class(self):$/;"	m	class:RecipeViewSet
 handle	app/core/management/commands/wait_for_db.py	/^    def handle(self, *args, **options):$/;"	m	class:Command
 image	app/core/models.py	/^    image = models.ImageField(null=True, upload_to=recipe_image_file_path)$/;"	v	class:Recipe
+image_upload_url	app/recipe/tests/test_recipe_api.py	/^def image_upload_url(recipe_id):$/;"	f
 ingredients	app/core/models.py	/^    ingredients = models.ManyToManyField('Ingredient')$/;"	v	class:Recipe
 ingredients	app/recipe/serializers.py	/^    ingredients = IngredientSerializer(many=True, read_only=True)$/;"	v	class:RecipeDetailSerializer
 ingredients	app/recipe/serializers.py	/^    ingredients = serializers.PrimaryKeyRelatedField($/;"	v	class:RecipeSerializer
@@ -115,6 +120,7 @@ link	app/core/models.py	/^    link = models.CharField(max_length=255, blank=True
 list_display	app/core/admin.py	/^    list_display = ['email', 'name']$/;"	v	class:UserAdmin
 many	app/recipe/serializers.py	/^        many=True,$/;"	v	class:RecipeSerializer
 model	app/recipe/serializers.py	/^        model = Ingredient$/;"	v	class:IngredientSerializer.Meta
+model	app/recipe/serializers.py	/^        model = Recipe$/;"	v	class:RecipeImageSerializer.Meta
 model	app/recipe/serializers.py	/^        model = Recipe$/;"	v	class:RecipeSerializer.Meta
 model	app/recipe/serializers.py	/^        model = Tag$/;"	v	class:TagSerializer.Meta
 model	app/user/serializers.py	/^        model = get_user_model()$/;"	v	class:UserSerializer.Meta
@@ -155,6 +161,7 @@ queryset	app/recipe/views.py	/^    queryset = Ingredient.objects.all()$/;"	v	cla
 queryset	app/recipe/views.py	/^    queryset = Recipe.objects.all()$/;"	v	class:RecipeViewSet
 queryset	app/recipe/views.py	/^    queryset = Tag.objects.all()$/;"	v	class:TagViewSet
 read_only_fields	app/recipe/serializers.py	/^        read_only_fields = ('id',)$/;"	v	class:IngredientSerializer.Meta
+read_only_fields	app/recipe/serializers.py	/^        read_only_fields = ('id',)$/;"	v	class:RecipeImageSerializer.Meta
 read_only_fields	app/recipe/serializers.py	/^        read_only_fields = ('id',)$/;"	v	class:RecipeSerializer.Meta
 read_only_fields	app/recipe/serializers.py	/^        read_only_fields = ('id',)$/;"	v	class:TagSerializer.Meta
 recipe_image_file_path	app/core/models.py	/^def recipe_image_file_path(instance, filename):$/;"	f
@@ -175,12 +182,14 @@ setUp	app/recipe/tests/test_ingredients_api.py	/^    def setUp(self):$/;"	m	clas
 setUp	app/recipe/tests/test_ingredients_api.py	/^    def setUp(self):$/;"	m	class:PublicIngredientsApiTest
 setUp	app/recipe/tests/test_recipe_api.py	/^    def setUp(self):$/;"	m	class:PrivateRecipeApiTest
 setUp	app/recipe/tests/test_recipe_api.py	/^    def setUp(self):$/;"	m	class:PublicRecipeApiTest
+setUp	app/recipe/tests/test_recipe_api.py	/^    def setUp(self):$/;"	m	class:RecipeUploadImageTests
 setUp	app/recipe/tests/test_tags_api.py	/^    def setUp(self):$/;"	m	class:PrivateTagsApiTests
 setUp	app/recipe/tests/test_tags_api.py	/^    def setUp(self):$/;"	m	class:PublicTagsApiTests
 style	app/user/serializers.py	/^        style={'input_type': 'password'},$/;"	v	class:AuthTokenSerializer
 tags	app/core/models.py	/^    tags = models.ManyToManyField('Tag')$/;"	v	class:Recipe
 tags	app/recipe/serializers.py	/^    tags = TagSerializer(many=True, read_only=True)$/;"	v	class:RecipeDetailSerializer
 tags	app/recipe/serializers.py	/^    tags = serializers.PrimaryKeyRelatedField($/;"	v	class:RecipeSerializer
+tearDown	app/recipe/tests/test_recipe_api.py	/^    def tearDown(self):$/;"	m	class:RecipeUploadImageTests
 tes_view_recipe_detail	app/recipe/tests/test_recipe_api.py	/^    def tes_view_recipe_detail(self):$/;"	m	class:PrivateRecipeApiTest
 test_auth_required	app/recipe/tests/test_recipe_api.py	/^    def test_auth_required(self):$/;"	m	class:PublicRecipeApiTest
 test_create_basic_recipe	app/recipe/tests/test_recipe_api.py	/^    def test_create_basic_recipe(self):$/;"	m	class:PrivateRecipeApiTest
@@ -209,6 +218,8 @@ test_retrieve_tags	app/recipe/tests/test_tags_api.py	/^    def test_retrieve_tag
 test_tag_str	app/core/tests/test_models.py	/^    def test_tag_str(self):$/;"	m	class:ModelTests
 test_tags_limited_to_user	app/recipe/tests/test_tags_api.py	/^    def test_tags_limited_to_user(self):$/;"	m	class:PrivateTagsApiTests
 test_test_create_tag_successful	app/recipe/tests/test_tags_api.py	/^    def test_test_create_tag_successful(self):$/;"	m	class:PrivateTagsApiTests
+test_upload_image_bad_request	app/recipe/tests/test_recipe_api.py	/^    def test_upload_image_bad_request(self):$/;"	m	class:RecipeUploadImageTests
+test_upload_image_to_recipe	app/recipe/tests/test_recipe_api.py	/^    def test_upload_image_to_recipe(self):$/;"	m	class:RecipeUploadImageTests
 test_user_change_page	app/core/tests/test_admin.py	/^    def test_user_change_page(self):$/;"	m	class:AdminSiteTests
 test_users_listed	app/core/tests/test_admin.py	/^    def test_users_listed(self):$/;"	m	class:AdminSiteTests
 test_wait_for_db	app/core/tests/test_commands.py	/^    def test_wait_for_db(self, ts):$/;"	m	class:CommandTests
@@ -217,6 +228,7 @@ time_minutes	app/core/models.py	/^    time_minutes = models.IntegerField()$/;"	v
 title	app/core/models.py	/^    title = models.CharField(max_length=255)$/;"	v	class:Recipe
 trim_whitespace	app/user/serializers.py	/^        trim_whitespace=False$/;"	v	class:AuthTokenSerializer
 update	app/user/serializers.py	/^    def update(self, instance, validated_data):$/;"	m	class:UserSerializer
+upload_image	app/recipe/views.py	/^    def upload_image(self, request, pk=None):$/;"	m	class:RecipeViewSet
 urlpatterns	app/app/urls.py	/^urlpatterns = [$/;"	v
 urlpatterns	app/recipe/urls.py	/^urlpatterns = [$/;"	v
 urlpatterns	app/user/urls.py	/^urlpatterns = [$/;"	v
