@@ -187,12 +187,14 @@ test_create_recipe_with_tags	app/recipe/tests/test_recipe_api.py	/^    def test_
 test_create_tag_invalid	app/recipe/tests/test_tags_api.py	/^    def test_create_tag_invalid(self):$/;"	m	class:PrivateTagsApiTests
 test_create_user_page	app/core/tests/test_admin.py	/^    def test_create_user_page(self):$/;"	m	class:AdminSiteTests
 test_create_user_with_email_successful	app/core/tests/test_models.py	/^    def test_create_user_with_email_successful(self):$/;"	m	class:ModelTests
+test_full_update_recipe	app/recipe/tests/test_recipe_api.py	/^    def test_full_update_recipe(self):$/;"	m	class:PrivateRecipeApiTest
 test_ingredient_str	app/core/tests/test_models.py	/^    def test_ingredient_str(self):$/;"	m	class:ModelTests
 test_ingredients_limited_to_user	app/recipe/tests/test_ingredients_api.py	/^    def test_ingredients_limited_to_user(self):$/;"	m	class:PrivateIngredientsApiTest
 test_login_required	app/recipe/tests/test_ingredients_api.py	/^    def test_login_required(self):$/;"	m	class:PublicIngredientsApiTest
 test_login_required	app/recipe/tests/test_tags_api.py	/^    def test_login_required(self):$/;"	m	class:PublicTagsApiTests
 test_new_user_email_normalized	app/core/tests/test_models.py	/^    def test_new_user_email_normalized(self):$/;"	m	class:ModelTests
 test_new_user_invalid_email	app/core/tests/test_models.py	/^    def test_new_user_invalid_email(self):$/;"	m	class:ModelTests
+test_partial_update_recipe	app/recipe/tests/test_recipe_api.py	/^    def test_partial_update_recipe(self):$/;"	m	class:PrivateRecipeApiTest
 test_recipe_str	app/core/tests/test_models.py	/^    def test_recipe_str(self):$/;"	m	class:ModelTests
 test_recipes_limited_to_user	app/recipe/tests/test_recipe_api.py	/^    def test_recipes_limited_to_user(self):$/;"	m	class:PrivateRecipeApiTest
 test_retrieve_ingredients_list	app/recipe/tests/test_ingredients_api.py	/^    def test_retrieve_ingredients_list(self):$/;"	m	class:PrivateIngredientsApiTest
