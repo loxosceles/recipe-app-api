@@ -140,6 +140,7 @@ options	app/core/migrations/0001_initial.py	/^            options={$/;"	v	class:
 ordering	app/core/admin.py	/^    ordering = ['id']$/;"	v	class:UserAdmin
 password	app/user/serializers.py	/^    password = serializers.CharField($/;"	v	class:AuthTokenSerializer
 perform_create	app/recipe/views.py	/^    def perform_create(self, serializer):$/;"	m	class:BaseRecipeAttrViewSet
+perform_create	app/recipe/views.py	/^    def perform_create(self, serializer):$/;"	m	class:RecipeViewSet
 permission_classes	app/recipe/views.py	/^    permission_classes = (IsAuthenticated,)$/;"	v	class:BaseRecipeAttrViewSet
 permission_classes	app/recipe/views.py	/^    permission_classes = (IsAuthenticated,)$/;"	v	class:RecipeViewSet
 permission_classes	app/user/views.py	/^    permission_classes = (permissions.IsAuthenticated,)$/;"	v	class:ManageUserView
@@ -177,9 +178,12 @@ tags	app/recipe/serializers.py	/^    tags = TagSerializer(many=True, read_only=T
 tags	app/recipe/serializers.py	/^    tags = serializers.PrimaryKeyRelatedField($/;"	v	class:RecipeSerializer
 tes_view_recipe_detail	app/recipe/tests/test_recipe_api.py	/^    def tes_view_recipe_detail(self):$/;"	m	class:PrivateRecipeApiTest
 test_auth_required	app/recipe/tests/test_recipe_api.py	/^    def test_auth_required(self):$/;"	m	class:PublicRecipeApiTest
+test_create_basic_recipe	app/recipe/tests/test_recipe_api.py	/^    def test_create_basic_recipe(self):$/;"	m	class:PrivateRecipeApiTest
 test_create_ingredient_invalid	app/recipe/tests/test_ingredients_api.py	/^    def test_create_ingredient_invalid(self):$/;"	m	class:PrivateIngredientsApiTest
 test_create_ingredient_sucessfull	app/recipe/tests/test_ingredients_api.py	/^    def test_create_ingredient_sucessfull(self):$/;"	m	class:PrivateIngredientsApiTest
 test_create_new_superuser	app/core/tests/test_models.py	/^    def test_create_new_superuser(self):$/;"	m	class:ModelTests
+test_create_recipe_with_ingredients	app/recipe/tests/test_recipe_api.py	/^    def test_create_recipe_with_ingredients(self):$/;"	m	class:PrivateRecipeApiTest
+test_create_recipe_with_tags	app/recipe/tests/test_recipe_api.py	/^    def test_create_recipe_with_tags(self):$/;"	m	class:PrivateRecipeApiTest
 test_create_tag_invalid	app/recipe/tests/test_tags_api.py	/^    def test_create_tag_invalid(self):$/;"	m	class:PrivateTagsApiTests
 test_create_user_page	app/core/tests/test_admin.py	/^    def test_create_user_page(self):$/;"	m	class:AdminSiteTests
 test_create_user_with_email_successful	app/core/tests/test_models.py	/^    def test_create_user_with_email_successful(self):$/;"	m	class:ModelTests
