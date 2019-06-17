@@ -75,6 +75,7 @@ WSGI_APPLICATION	app/app/settings.py	/^WSGI_APPLICATION = 'app.wsgi.application'
 __str__	app/core/models.py	/^    def __str__(self):$/;"	m	class:Ingredient	file:
 __str__	app/core/models.py	/^    def __str__(self):$/;"	m	class:Recipe	file:
 __str__	app/core/models.py	/^    def __str__(self):$/;"	m	class:Tag	file:
+_params_to_ints	app/recipe/views.py	/^    def _params_to_ints(self, qs):$/;"	m	class:RecipeViewSet
 add_fieldsets	app/core/admin.py	/^    add_fieldsets = ($/;"	v	class:UserAdmin
 app_name	app/recipe/urls.py	/^app_name = 'recipe'$/;"	v
 app_name	app/user/urls.py	/^app_name = 'user'$/;"	v
@@ -201,6 +202,8 @@ test_create_recipe_with_tags	app/recipe/tests/test_recipe_api.py	/^    def test_
 test_create_tag_invalid	app/recipe/tests/test_tags_api.py	/^    def test_create_tag_invalid(self):$/;"	m	class:PrivateTagsApiTests
 test_create_user_page	app/core/tests/test_admin.py	/^    def test_create_user_page(self):$/;"	m	class:AdminSiteTests
 test_create_user_with_email_successful	app/core/tests/test_models.py	/^    def test_create_user_with_email_successful(self):$/;"	m	class:ModelTests
+test_filter_recipe_by_ingredients	app/recipe/tests/test_recipe_api.py	/^    def test_filter_recipe_by_ingredients(self):$/;"	m	class:RecipeUploadImageTests
+test_filter_recipes_by_tags	app/recipe/tests/test_recipe_api.py	/^    def test_filter_recipes_by_tags(self):$/;"	m	class:RecipeUploadImageTests
 test_full_update_recipe	app/recipe/tests/test_recipe_api.py	/^    def test_full_update_recipe(self):$/;"	m	class:PrivateRecipeApiTest
 test_ingredient_str	app/core/tests/test_models.py	/^    def test_ingredient_str(self):$/;"	m	class:ModelTests
 test_ingredients_limited_to_user	app/recipe/tests/test_ingredients_api.py	/^    def test_ingredients_limited_to_user(self):$/;"	m	class:PrivateIngredientsApiTest
